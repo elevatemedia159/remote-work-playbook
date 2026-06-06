@@ -48,7 +48,7 @@ function PriceDisplay({ size = "large" }: { size?: "large" | "medium" | "small" 
   return (
     <div className="flex items-end gap-3 flex-wrap justify-center">
       <span className={`${priceSize} font-black text-white`}>
-        &#8377;{expired ? "449" : "249"}
+        &#8377;{expired ? "149" : "99"}
       </span>
       <span className={`${strikeSize} font-medium line-through pb-1`} style={{ color: "#6b7280" }}>
         &#8377;1,599
@@ -133,7 +133,7 @@ function Hero() {
           >
             Get the PDF Guide &mdash;{" "}
             <span style={{ textDecoration: "line-through", opacity: 0.6 }}>&#8377;1,599</span>
-            {" "}&#8377;{expired ? "449" : "249"}
+            {" "}&#8377;{expired ? "149" : "99"}
           </a>
           <a
             href="#inside"
@@ -409,7 +409,7 @@ function Pricing() {
               className="block w-full py-3.5 rounded-xl font-bold text-white text-center text-base transition-all hover:scale-[1.02]"
               style={{ backgroundColor: "#7c3aed", boxShadow: "0 4px 20px rgba(124,58,237,0.4)" }}
             >
-              Get Instant Access &mdash; &#8377;{expired ? "449" : "249"}
+              Get Instant Access &mdash; &#8377;{expired ? "149" : "99"}
             </a>
 
             <p className="text-xs mt-4 flex items-center justify-center gap-1" style={{ color: "#6b7280" }}>
@@ -484,7 +484,7 @@ function FinalCTA() {
         >
           Get the PDF Guide &mdash;{" "}
           <span style={{ textDecoration: "line-through", opacity: 0.55 }}>&#8377;1,599</span>
-          {" "}&#8377;{expired ? "449" : "249"}
+          {" "}&#8377;{expired ? "149" : "99"}
         </a>
       </div>
     </section>

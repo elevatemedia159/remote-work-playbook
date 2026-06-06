@@ -34,7 +34,7 @@ function CheckoutContent() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const displayPrice = expired ? "449" : "249";
+  const displayPrice = expired ? "149" : "99";
 
   // Load Razorpay script on mount
   useEffect(() => {

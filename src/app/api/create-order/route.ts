@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import Razorpay from "razorpay";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
-const OFFER_PRICE_PAISE   = 24900; // ₹249
-const REGULAR_PRICE_PAISE = 44900; // ₹449
+const OFFER_PRICE_PAISE   = 9900;  // ₹99
+const REGULAR_PRICE_PAISE = 14900; // ₹149
 const OFFER_DURATION_MS   = 10 * 60 * 1000;
 const CURRENCY = "INR";
 
