@@ -122,7 +122,7 @@ export async function sendDeliveryEmail(name: string, email: string): Promise<vo
     from: "Remote Work Playbook <hello@mail.elevatemedia159.in>",
     to: email,
     replyTo: "elevate.media159@gmail.com",
-    subject: "Your Remote Work Playbook is here — download now",
+    subject: "Your Remote Work Playbook is here, download now",
     html,
   });
 

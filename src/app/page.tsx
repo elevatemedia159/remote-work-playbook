@@ -119,7 +119,7 @@ function Hero() {
           <div className="flex items-center gap-2 text-sm">
             <Zap size={14} style={{ color: expired ? "#6b7280" : "#a78bfa" }} />
             <span style={{ color: expired ? "#6b7280" : "#c4b5fd" }}>
-              {expired ? "Early bird offer expired" : "Early bird offer — limited time"}
+              {expired ? "Early bird offer expired" : "Early bird offer, limited time"}
             </span>
           </div>
           <CountdownTimer variant="inline" />
@@ -131,7 +131,7 @@ function Hero() {
             className="px-6 py-3.5 rounded-xl font-bold text-white text-base transition-all hover:scale-105 hover:shadow-lg text-center"
             style={{ backgroundColor: "#7c3aed", boxShadow: "0 4px 24px rgba(124,58,237,0.35)" }}
           >
-            Get the PDF Guide &mdash;{" "}
+            Get the PDF Guide{" "}
             <span style={{ textDecoration: "line-through", opacity: 0.6 }}>&#8377;1,599</span>
             {" "}&#8377;{expired ? "149" : "99"}
           </a>
@@ -367,7 +367,7 @@ function Pricing() {
               >
                 <Zap size={13} style={{ color: "#4ade80" }} />
                 <span className="text-xs font-semibold" style={{ color: "#4ade80" }}>
-                  You save &#8377;1,350 &mdash; 84% off today only
+                  You save &#8377;1,350 · 84% off today only
                 </span>
               </div>
             )}
@@ -409,7 +409,7 @@ function Pricing() {
               className="block w-full py-3.5 rounded-xl font-bold text-white text-center text-base transition-all hover:scale-[1.02]"
               style={{ backgroundColor: "#7c3aed", boxShadow: "0 4px 20px rgba(124,58,237,0.4)" }}
             >
-              Get Instant Access &mdash; &#8377;{expired ? "149" : "99"}
+              Get Instant Access for &#8377;{expired ? "149" : "99"}
             </a>
 
             <p className="text-xs mt-4 flex items-center justify-center gap-1" style={{ color: "#6b7280" }}>
@@ -426,8 +426,8 @@ function Pricing() {
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 
 const faqs = [
-  { q: "Who is this guide for?", a: "Any professional with 2 or more years of experience in any function — engineering, design, data, marketing, operations, content, finance, and more. The framework is role-agnostic and every search template uses a [your role] placeholder you fill in yourself." },
-  { q: "Will US companies actually hire people based in India?", a: "Yes, many do — especially remote-first startups and scale-ups. The guide specifically targets timezone-friendly search strategies and global-friendly job boards that welcome India-based applicants with no visa sponsorship required." },
+  { q: "Who is this guide for?", a: "Any professional with 2 or more years of experience in any function: engineering, design, data, marketing, operations, content, finance, and more. The framework is role-agnostic and every search template uses a [your role] placeholder you fill in yourself." },
+  { q: "Will US companies actually hire people based in India?", a: "Yes, many do, especially remote-first startups and scale-ups. The guide specifically targets timezone-friendly search strategies and global-friendly job boards that welcome India-based applicants with no visa sponsorship required." },
   { q: "How do I receive the guide after payment?", a: "Immediately after your payment is confirmed, we send a download link to the email address you entered at checkout. The link takes you directly to your PDF. Check your spam or promotions folder if you do not see it within a few minutes." },
   { q: "What format is the guide in?", a: "A clean, 12-page print-ready PDF. Easy to read on screen or print as a physical reference. Structured so you can follow along one day at a time without any prior job search experience." },
   { q: "Can I use this for roles outside of tech?", a: "Yes. The outreach framework, job boards, and networking tactics apply to any remote knowledge-worker role. Every search template uses [your role] so you substitute your exact job title before using it." },
@@ -482,7 +482,7 @@ function FinalCTA() {
           className="inline-block px-8 py-3.5 rounded-xl font-bold text-base transition-all hover:scale-105"
           style={{ backgroundColor: "#ffffff", color: "#7c3aed" }}
         >
-          Get the PDF Guide &mdash;{" "}
+          Get the PDF Guide{" "}
           <span style={{ textDecoration: "line-through", opacity: 0.55 }}>&#8377;1,599</span>
           {" "}&#8377;{expired ? "149" : "99"}
         </a>

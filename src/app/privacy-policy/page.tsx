@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Privacy Policy — Remote Work Playbook",
+  title: "Privacy Policy | Remote Work Playbook",
   description: "Privacy policy for the Remote Work Playbook by Elevate Media.",
 };
 
@@ -15,7 +15,7 @@ const sections = [
     content: `When you make a purchase or fill in our checkout form, we collect:
 - Your full name
 - Your email address
-- Payment confirmation details (processed securely by Razorpay — we do not store card numbers or UPI credentials)
+- Payment confirmation details (processed securely by Razorpay; we do not store card numbers or UPI credentials)
 
 We do not collect any sensitive personal information beyond what is listed above.`,
   },
@@ -44,10 +44,10 @@ We do not use your information for any automated decision-making or profiling.`,
   {
     title: "7. Third-Party Services",
     content: `We use the following third-party services to operate this website:
-- Razorpay — payment processing
-- Resend — transactional email delivery
-- Supabase — secure database and file storage
-- Vercel — website hosting
+- Razorpay: payment processing
+- Resend: transactional email delivery
+- Supabase: secure database and file storage
+- Vercel: website hosting
 
 Each service has its own privacy policy governing how they handle data.`,
   },

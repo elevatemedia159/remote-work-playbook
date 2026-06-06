@@ -3,7 +3,7 @@ import { Check, Download, Mail, ArrowRight } from "lucide-react";
 import PurchaseEvent from "@/components/PurchaseEvent";
 
 export const metadata = {
-  title: "Thank You — Remote Work Playbook",
+  title: "Thank You | Remote Work Playbook",
   description: "Your purchase is confirmed. We have sent your download link to your email.",
 };
 

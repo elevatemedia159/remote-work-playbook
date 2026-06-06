@@ -75,7 +75,7 @@ export default function CountdownTimer({ variant = "banner" }: CountdownTimerPro
       }}
     >
       {expired ? (
-        "Early bird offer has expired — regular price applies"
+        "Early bird offer has expired. Regular price applies."
       ) : (
         <span className="flex items-center justify-center gap-2">
           <Clock size={14} style={{ color: "#d97706" }} />
@@ -87,7 +87,7 @@ export default function CountdownTimer({ variant = "banner" }: CountdownTimerPro
           >
             {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
           </span>
-          &mdash; regular price is &#8377;1,599
+          · regular price is &#8377;1,599
         </span>
       )}
     </div>
