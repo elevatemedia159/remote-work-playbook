@@ -205,7 +205,7 @@ function CheckoutContent() {
               className="mt-5 pt-5 border-t flex flex-wrap gap-x-4 gap-y-1"
               style={{ borderColor: "rgba(255,255,255,0.08)" }}
             >
-              {["30-day money-back guarantee", "Instant delivery", "No subscription"].map((t) => (
+              {["Instant delivery", "No subscription"].map((t) => (
                 <span key={t} className="text-xs flex items-center gap-1" style={{ color: "#6b7280" }}>
                   <Check size={10} style={{ color: "#16a34a" }} />
                   {t}
