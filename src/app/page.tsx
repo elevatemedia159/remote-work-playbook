@@ -414,7 +414,7 @@ function Pricing() {
 
             <p className="text-xs mt-4 flex items-center justify-center gap-1" style={{ color: "#6b7280" }}>
               <Lock size={11} />
-              Secure checkout &middot; Instant PDF delivery &middot; 30-day money-back guarantee
+              Secure checkout &middot; Instant PDF delivery
             </p>
           </div>
         </div>
