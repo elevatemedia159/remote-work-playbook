@@ -113,8 +113,21 @@ Columns:
 - `elevatemedia159.in` approved by Razorpay as verified domain
 - Full payment workflow confirmed working end-to-end
 
+### UAT / Staging Environment
+- GitHub repo: `elevatemedia159/remote-work-playbook` (made public to allow Vercel Hobby plan auto-deploys)
+- `staging` branch auto-deploys to Vercel Preview URL on every push
+- `main` branch auto-deploys to `elevatemedia159.in` (production)
+- Workflow: make changes on staging → test on preview URL → merge to main → production updates
+- Resend lazy-init fix applied (was crashing build when `RESEND_API_KEY` missing in Preview env)
+- `RESEND_API_KEY` added to Vercel Preview environment via dashboard
+
+### Pricing Update (intentional, applied to both staging and production)
+- Offer price (first 10 mins): ₹249 → **₹99**
+- Regular price (after offer expires): ₹449 → **₹149**
+- Original strikethrough price remains ₹1,599
+- Updated in: `create-order/route.ts`, `checkout/page.tsx`, `page.tsx`
+
 ---
 
-*Last updated: Session ongoing*
-# staging test
+*Last updated: 2026-06-06*
 
