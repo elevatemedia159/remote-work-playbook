@@ -1,7 +1,11 @@
 import { Resend } from "resend";
 import { getSupabaseAdmin } from "./supabase";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend(): Resend {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) throw new Error("RESEND_API_KEY env var is not set.");
+  return new Resend(key);
+}
 
 // Generates a signed download URL valid for 7 days
 async function getSignedDownloadUrl(): Promise<string> {
@@ -114,7 +118,7 @@ export async function sendDeliveryEmail(name: string, email: string): Promise<vo
   const downloadUrl = await getSignedDownloadUrl();
   const html = buildEmailHtml(name, downloadUrl);
 
-  const { error } = await resend.emails.send({
+  const { error } = await getResend().emails.send({
     from: "Remote Work Playbook <hello@mail.elevatemedia159.in>",
     to: email,
     replyTo: "elevate.media159@gmail.com",
