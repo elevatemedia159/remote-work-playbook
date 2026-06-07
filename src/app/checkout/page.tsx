@@ -311,7 +311,7 @@ function CheckoutContent() {
 
           <p className="text-xs text-center mt-4">
             <Link href="/" className="hover:underline" style={{ color: "#7c3aed" }}>
-              &larr; Back to the sales page
+              &larr; Go back and learn more
             </Link>
           </p>
         </div>
