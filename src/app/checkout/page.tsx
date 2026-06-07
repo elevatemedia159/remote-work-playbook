@@ -76,7 +76,7 @@ function CheckoutContent() {
       currency: orderData.currency,
       name: "Elevate Media",
       description: "The Remote Work Playbook – Updated June 2026",
-      image: "https://elevatemedia159.in/icon.svg",
+      image: "https://elevatemedia159.in/logo.png",
       order_id: orderData.orderId,
       prefill: { name, email },
       theme: { color: "#7c3aed" },
