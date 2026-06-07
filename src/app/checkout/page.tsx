@@ -29,7 +29,7 @@ function CheckoutContent() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const displayPrice = "149";
+  const displayPrice = "99";
 
   // Load Razorpay script on mount
   useEffect(() => {
@@ -182,7 +182,7 @@ function CheckoutContent() {
               <div className="flex items-end gap-3 mb-5">
                 <span className="text-5xl font-black text-white">&#8377;{displayPrice}</span>
                 <span className="text-sm pb-1 line-through" style={{ color: "#6b7280" }}>&#8377;1,599</span>
-                <span className="text-sm pb-1 font-semibold" style={{ color: "#4ade80" }}>91% off</span>
+                <span className="text-sm pb-1 font-semibold" style={{ color: "#4ade80" }}>94% off</span>
               </div>
 
               <ul className="space-y-3 mb-4">

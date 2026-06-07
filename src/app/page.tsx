@@ -57,7 +57,7 @@ function Nav() {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
-  const price = "149";
+  const price = "99";
 
   return (
     <section style={{
@@ -86,40 +86,37 @@ function Hero() {
         </p>
 
         {/* Offer card */}
-        <div style={{
-          width: "100%",
-          backgroundColor: "rgba(255,255,255,0.04)",
-          border: "1px solid rgba(124,58,237,0.4)",
-          borderRadius: 16, overflow: "hidden",
-          boxShadow: "0 0 48px rgba(124,58,237,0.18)",
-        }}>
-          {/* Limited Time Offer banner */}
+        <div style={{ width: "100%" }}>
+          {/* Limited time label */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginBottom: 12 }}>
+            <span style={{ display: "block", width: 32, height: 1, backgroundColor: "rgba(167,139,250,0.35)" }} />
+            <span style={{ fontSize: 11, fontWeight: 600, color: "#a78bfa", letterSpacing: "0.14em", textTransform: "uppercase" }}>Limited Time Offer</span>
+            <span style={{ display: "block", width: 32, height: 1, backgroundColor: "rgba(167,139,250,0.35)" }} />
+          </div>
+
+          {/* Price + CTA block */}
           <div style={{
-            background: "linear-gradient(90deg, #5b21b6 0%, #7c3aed 50%, #6d28d9 100%)",
-            padding: "10px 20px",
-            display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
+            backgroundColor: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(124,58,237,0.35)",
+            borderRadius: 16,
+            padding: "20px 20px 16px",
+            boxShadow: "0 0 40px rgba(124,58,237,0.14)",
           }}>
-            <span style={{ fontSize: 14 }}>⏳</span>
-            <span style={{ fontWeight: 700, fontSize: 12, color: "#ffffff", letterSpacing: "0.08em", textTransform: "uppercase" }}>Limited Time Offer</span>
-            <span style={{
-              backgroundColor: "rgba(255,255,255,0.2)", color: "#ffffff",
-              fontWeight: 700, fontSize: 11, borderRadius: 999, padding: "2px 8px",
-            }}>91% OFF</span>
-          </div>
-
-          {/* Price row */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "18px 20px 6px" }}>
-            <div>
-              <p style={{ margin: 0, fontWeight: 400, fontSize: 13, color: "#64748b", textDecoration: "line-through" }}>&#8377;1,599</p>
-              <p style={{ margin: "2px 0 0", fontWeight: 800, fontSize: 44, color: "#ffffff", lineHeight: 1 }}>&#8377;{price}</p>
+            {/* Price row */}
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 16 }}>
+              <div>
+                <span style={{ display: "block", fontSize: 13, color: "#64748b", textDecoration: "line-through", fontWeight: 400 }}>&#8377;1,599</span>
+                <span style={{ display: "block", fontSize: 46, fontWeight: 800, color: "#ffffff", lineHeight: 1, marginTop: 2 }}>&#8377;{price}</span>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4, paddingBottom: 4 }}>
+                <span style={{
+                  backgroundColor: "rgba(124,58,237,0.2)", border: "1px solid rgba(124,58,237,0.4)",
+                  color: "#a78bfa", fontWeight: 700, fontSize: 11, borderRadius: 999, padding: "3px 10px",
+                }}>94% OFF</span>
+                <span style={{ fontSize: 11, color: "#64748b", fontWeight: 400 }}>One-time · Instant PDF</span>
+              </div>
             </div>
-            <div style={{ textAlign: "right" }}>
-              <p style={{ margin: 0, fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>One-time</p>
-              <p style={{ margin: "2px 0 0", fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>Instant PDF</p>
-            </div>
-          </div>
 
-          <div style={{ padding: "12px 16px 16px" }}>
             <a href={CHECKOUT_URL} className="cta-btn cta-btn--pulse">
               Show Me The 7-Day Plan · &#8377;{price}
             </a>
@@ -159,7 +156,7 @@ function Agitation() {
 // ─── Mechanism ────────────────────────────────────────────────────────────────
 
 function Mechanism() {
-  const price = "149";
+  const price = "99";
 
   const items = [
     { icon: "🌐", text: "28 remote job boards most Indian applicants never touch, so you're not fighting the crowd." },
@@ -204,10 +201,10 @@ function Stakes() {
     <section style={{ backgroundColor: "#f9fafb", padding: "56px 24px" }}>
       <div style={{ maxWidth: 420, margin: "0 auto", textAlign: "center" }}>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,26px)", color: "#0f172a", lineHeight: 1.25, marginBottom: 20 }}>
-          The Real Price Isn&apos;t &#8377;149. It&apos;s Waiting.
+          The Real Price Isn&apos;t &#8377;99. It&apos;s Waiting.
         </h2>
         <p style={{ fontWeight: 400, fontSize: 15, color: "#475569", lineHeight: 1.75, margin: 0 }}>
-          Every month you keep applying the old way is a month you stay on a rupee salary while the same roles, paying 3x to 5x in USD, go to someone with a system. &#8377;149 is less than a dinner out. The cost of doing nothing is another quarter of your career spent waiting for a reply that isn&apos;t coming.
+          Every month you keep applying the old way is a month you stay on a rupee salary while the same roles, paying 3x to 5x in USD, go to someone with a system. &#8377;99 is less than a dinner out. The cost of doing nothing is another quarter of your career spent waiting for a reply that isn&apos;t coming.
         </p>
       </div>
     </section>
@@ -217,7 +214,7 @@ function Stakes() {
 // ─── Pricing ──────────────────────────────────────────────────────────────────
 
 function Pricing() {
-  const price = "149";
+  const price = "99";
 
   return (
     <section style={{ backgroundColor: "#0f0a1e", padding: "56px 24px" }}>
@@ -336,7 +333,7 @@ function FAQ() {
 // ─── Final CTA ────────────────────────────────────────────────────────────────
 
 function FinalCTA() {
-  const price = "149";
+  const price = "99";
 
   return (
     <section style={{
