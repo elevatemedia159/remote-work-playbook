@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const syne = Syne({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-syne" });
-const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-dm-sans" });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-poppins" });
 const GA_ID = "G-73PXTSJTTR";
 
 export const metadata: Metadata = {
@@ -36,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
+    <html lang="en" className={poppins.variable}>
       <head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}

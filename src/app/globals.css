@@ -9,14 +9,14 @@
   --text-dark:      #0f172a;
   --green-trust:    #22c55e;
   --amber-star:     #f59e0b;
-  --font-display:   var(--font-syne), system-ui, sans-serif;
-  --font-body:      var(--font-dm-sans), system-ui, sans-serif;
+  --font-display:   var(--font-poppins), system-ui, sans-serif;
+  --font-body:      var(--font-poppins), system-ui, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-poppins), system-ui, sans-serif;
   background: #ffffff;
   color: #111827;
 }
