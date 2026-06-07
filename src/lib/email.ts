@@ -52,7 +52,7 @@ function buildEmailHtml(name: string, downloadUrl: string): string {
                 You're all set, ${firstName}!
               </p>
               <p style="margin:0 0 24px;font-size:15px;color:#6b7280;line-height:1.6;">
-                Thank you for your purchase. Your copy of <strong style="color:#111827;">The Remote Work Playbook v2</strong> is ready to download right now.
+                Thank you for your purchase. Your copy of <strong style="color:#111827;">The Remote Work Playbook – Updated June 2026</strong> is ready to download right now.
               </p>
 
               <!-- CTA button -->

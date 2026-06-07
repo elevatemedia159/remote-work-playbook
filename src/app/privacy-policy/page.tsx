@@ -8,7 +8,7 @@ export const metadata = {
 const sections = [
   {
     title: "1. Who We Are",
-    content: `This website is operated by Elevate Media. We sell The Remote Work Playbook v2, a digital PDF guide. You can reach us at elevate.media159@gmail.com for any privacy-related questions.`,
+    content: `This website is operated by Elevate Media. We sell The Remote Work Playbook – Updated June 2026, a digital PDF guide. You can reach us at elevate.media159@gmail.com for any privacy-related questions.`,
   },
   {
     title: "2. What Information We Collect",

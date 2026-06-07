@@ -9,12 +9,12 @@ export const metadata: Metadata = {
     shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
-  title: "The Remote Work Playbook v2 | Land a USD Remote Job in 7 Days",
+  title: "The Remote Work Playbook – Updated June 2026 | Land a USD Remote Job in 7 Days",
   description:
     "A 7-day job search system for India-based professionals targeting remote US roles that pay in USD. Curated job boards, copy-paste search terms, and daily checklists for every role.",
   metadataBase: new URL("https://elevatemedia159.in"),
   openGraph: {
-    title: "The Remote Work Playbook v2 | Land a USD Remote Job in 7 Days",
+    title: "The Remote Work Playbook – Updated June 2026 | Land a USD Remote Job in 7 Days",
     description:
       "A 7-day job search system for India-based professionals targeting remote US roles that pay in USD. Curated job boards, copy-paste search terms, and daily checklists for every role.",
     type: "website",

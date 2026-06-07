@@ -21,7 +21,7 @@ export default function PurchaseEvent() {
       items: [
         {
           item_id: "remote-work-playbook-v2",
-          item_name: "The Remote Work Playbook v2",
+          item_name: "The Remote Work Playbook – Updated June 2026",
           price: parseInt(localStorage.getItem("rwp_amount_paid") || "249", 10),
           quantity: 1,
         },

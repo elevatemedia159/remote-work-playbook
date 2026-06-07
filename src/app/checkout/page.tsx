@@ -81,7 +81,7 @@ function CheckoutContent() {
       amount: orderData.amount,
       currency: orderData.currency,
       name: "Elevate Media",
-      description: "The Remote Work Playbook v2",
+      description: "The Remote Work Playbook – Updated June 2026",
       order_id: orderData.orderId,
       prefill: { name, email },
       theme: { color: "#7c3aed" },
@@ -170,7 +170,7 @@ function CheckoutContent() {
               </div>
 
               <h2 className="text-white font-black text-xl mb-1">
-                The Remote Work Playbook v2
+                The Remote Work Playbook – Updated June 2026
               </h2>
               <p className="text-sm mb-4" style={{ color: "#9ca3af" }}>
                 By Elevate Media &nbsp;&middot;&nbsp; Instant PDF download

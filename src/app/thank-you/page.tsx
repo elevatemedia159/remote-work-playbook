@@ -57,7 +57,7 @@ export default function ThankYouPage() {
           </h1>
           <p className="text-base mb-8 sm:mb-10 px-2" style={{ color: "#9ca3af" }}>
             Your purchase of{" "}
-            <span style={{ color: "#a78bfa" }}>The Remote Work Playbook v2</span>{" "}
+            <span style={{ color: "#a78bfa" }}>The Remote Work Playbook – Updated June 2026</span>{" "}
             is confirmed. Your 7-day plan starts now.
           </p>
 

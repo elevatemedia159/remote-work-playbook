@@ -229,7 +229,7 @@ function Pricing() {
           borderRadius: 20, padding: "32px 24px",
           boxShadow: "0 8px 40px rgba(124,58,237,0.15)",
         }}>
-          <p style={{ fontWeight: 700, fontSize: 18, color: "#0f172a", margin: "0 0 12px" }}>Remote Work Playbook v2</p>
+          <p style={{ fontWeight: 700, fontSize: 18, color: "#0f172a", margin: "0 0 12px" }}>Remote Work Playbook – Updated June 2026</p>
           <p style={{ fontSize: 15, color: "#94a3b8", textDecoration: "line-through", margin: "0 0 4px", fontWeight: 400 }}>&#8377;1,599</p>
           <p style={{ fontWeight: 800, fontSize: 52, color: "#7c3aed", lineHeight: 1, margin: "0 0 4px" }}>&#8377;{price}</p>
           <p style={{ fontSize: 13, color: "#64748b", margin: "0 0 24px", fontWeight: 400 }}>One-time. Instant download. No subscription.</p>
