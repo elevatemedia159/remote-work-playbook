@@ -3,6 +3,11 @@ import Script from "next/script";
 import "./globals.css";
 const GA_ID = "G-73PXTSJTTR";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   icons: {
     icon: "/icon.svg",
