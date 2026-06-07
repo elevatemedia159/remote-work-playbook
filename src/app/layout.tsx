@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-poppins" });
 const GA_ID = "G-73PXTSJTTR";
 
 export const metadata: Metadata = {
@@ -35,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en">
       <head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}

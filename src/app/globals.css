@@ -9,14 +9,14 @@
   --text-dark:      #0f172a;
   --green-trust:    #22c55e;
   --amber-star:     #f59e0b;
-  --font-display:   var(--font-poppins), system-ui, sans-serif;
-  --font-body:      var(--font-poppins), system-ui, sans-serif;
+  --font-display:   -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --font-body:      -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   background: #ffffff;
   color: #111827;
 }
