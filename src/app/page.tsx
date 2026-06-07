@@ -74,8 +74,8 @@ function Hero() {
                 Early bird offer
               </span>
             </div>
-            {/* Timer row */}
-            <div className="flex items-center justify-between px-5 py-3">
+            {/* Timer + price row */}
+            <div className="flex items-center justify-between px-5 py-4">
               <div>
                 <p className="text-xs mb-0.5" style={{ color: "#9ca3af" }}>Price goes up in</p>
                 <CountdownTimer variant="inline" />
@@ -85,16 +85,43 @@ function Hero() {
                 <p className="text-xs line-through" style={{ color: "#6b7280" }}>&#8377;1,599</p>
               </div>
             </div>
+            {/* CTA inside box */}
+            <div className="px-4 pb-4">
+              <a
+                href={CHECKOUT_URL}
+                className="block w-full py-3.5 rounded-xl font-bold text-white text-base text-center"
+                style={{ backgroundColor: "#7c3aed", boxShadow: "0 4px 20px rgba(124,58,237,0.45)" }}
+              >
+                Get the PDF · &#8377;99
+              </a>
+              <p className="text-xs text-center mt-2 flex items-center justify-center gap-1" style={{ color: "#6b7280" }}>
+                <Lock size={10} /> Razorpay · Instant delivery
+              </p>
+            </div>
           </div>
         ) : (
           <div
-            className="w-full max-w-sm rounded-xl px-5 py-3 flex items-center justify-between"
-            style={{ backgroundColor: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)" }}
+            className="w-full max-w-sm rounded-2xl overflow-hidden"
+            style={{ border: "1px solid rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.04)" }}
           >
-            <span className="text-sm" style={{ color: "#6b7280" }}>Standard pricing</span>
-            <div className="text-right">
-              <p className="text-xl font-black text-white">&#8377;149</p>
-              <p className="text-xs line-through" style={{ color: "#4b5563" }}>&#8377;1,599</p>
+            <div className="flex items-center justify-between px-5 py-4">
+              <span className="text-sm" style={{ color: "#6b7280" }}>Standard pricing</span>
+              <div className="text-right">
+                <p className="text-xl font-black text-white">&#8377;149</p>
+                <p className="text-xs line-through" style={{ color: "#4b5563" }}>&#8377;1,599</p>
+              </div>
+            </div>
+            <div className="px-4 pb-4">
+              <a
+                href={CHECKOUT_URL}
+                className="block w-full py-3.5 rounded-xl font-bold text-white text-base text-center"
+                style={{ backgroundColor: "#7c3aed" }}
+              >
+                Get the PDF · &#8377;149
+              </a>
+              <p className="text-xs text-center mt-2 flex items-center justify-center gap-1" style={{ color: "#4b5563" }}>
+                <Lock size={10} /> Razorpay · Instant delivery
+              </p>
             </div>
           </div>
         )}
@@ -105,20 +132,6 @@ function Hero() {
             {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#f59e0b" style={{ color: "#f59e0b" }} />)}
           </div>
           <span className="text-xs" style={{ color: "#9ca3af" }}>4.6 stars · 567 readers</span>
-        </div>
-
-        {/* CTA */}
-        <div className="w-full max-w-xs flex flex-col gap-2">
-          <a
-            href={CHECKOUT_URL}
-            className="block w-full py-4 rounded-xl font-bold text-white text-lg text-center"
-            style={{ backgroundColor: "#7c3aed", boxShadow: "0 6px 28px rgba(124,58,237,0.45)" }}
-          >
-            Get Instant Access · &#8377;{expired ? "149" : "99"}
-          </a>
-          <p className="text-xs text-center flex items-center justify-center gap-1" style={{ color: "#4b5563" }}>
-            <Lock size={10} /> Razorpay · Instant PDF delivery
-          </p>
         </div>
       </div>
     </section>
