@@ -148,81 +148,68 @@ function CheckoutContent() {
 
       {/* Content */}
       <div className="flex-1 flex items-start justify-center px-4 py-12">
-        <div className="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="w-full max-w-lg">
 
-          {/* Left — order summary */}
+          {/* Single unified block */}
           <div
-            className="rounded-2xl p-6 border order-2 lg:order-1"
+            className="rounded-2xl border overflow-hidden"
             style={{
-              backgroundColor: "rgba(255,255,255,0.03)",
-              borderColor: "rgba(124,58,237,0.3)",
+              backgroundColor: "rgba(255,255,255,0.04)",
+              borderColor: "rgba(124,58,237,0.45)",
             }}
           >
-            <div className="mb-5">
-              <span
-                className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full"
-                style={{ backgroundColor: "rgba(124,58,237,0.25)", color: "#c4b5fd" }}
-              >
-                EARLY BIRD PRICING
-              </span>
-            </div>
-
-            <h2 className="text-white font-black text-xl mb-1">
-              The Remote Work Playbook v2
-            </h2>
-            <p className="text-sm mb-5" style={{ color: "#9ca3af" }}>
-              By Elevate Media &nbsp;&middot;&nbsp; Instant PDF download
-            </p>
-
-            <div
-              className="flex items-end gap-3 mb-5 pb-5 border-b"
-              style={{ borderColor: "rgba(255,255,255,0.08)" }}
-            >
-              <span className="text-5xl font-black text-white">&#8377;{displayPrice}</span>
-              <span className="text-sm pb-1 line-through" style={{ color: "#6b7280" }}>
-                &#8377;1,599
-              </span>
-              {!expired && (
-                <span className="text-sm pb-1 font-semibold" style={{ color: "#4ade80" }}>84% off</span>
-              )}
-            </div>
-
-            <ul className="space-y-3">
-              {pricingIncludes.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm" style={{ color: "#d1d5db" }}>
-                  <span
-                    className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: "#16a34a" }}
-                  >
-                    <Check size={11} color="white" strokeWidth={3} />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <div
-              className="mt-5 pt-5 border-t flex flex-wrap gap-x-4 gap-y-1"
-              style={{ borderColor: "rgba(255,255,255,0.08)" }}
-            >
-              {["Instant delivery", "No subscription"].map((t) => (
-                <span key={t} className="text-xs flex items-center gap-1" style={{ color: "#6b7280" }}>
-                  <Check size={10} style={{ color: "#16a34a" }} />
-                  {t}
+            {/* Top — product summary */}
+            <div className="p-6 sm:p-8 border-b" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+              <div className="mb-4">
+                <span
+                  className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full"
+                  style={{ backgroundColor: "rgba(124,58,237,0.25)", color: "#c4b5fd" }}
+                >
+                  EARLY BIRD PRICING
                 </span>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* Right — form */}
-          <div className="order-1 lg:order-2">
-            <div
-              className="rounded-2xl p-6 sm:p-8 border"
-              style={{
-                backgroundColor: "rgba(255,255,255,0.04)",
-                borderColor: "rgba(124,58,237,0.45)",
-              }}
-            >
+              <h2 className="text-white font-black text-xl mb-1">
+                The Remote Work Playbook v2
+              </h2>
+              <p className="text-sm mb-4" style={{ color: "#9ca3af" }}>
+                By Elevate Media &nbsp;&middot;&nbsp; Instant PDF download
+              </p>
+
+              <div className="flex items-end gap-3 mb-5">
+                <span className="text-5xl font-black text-white">&#8377;{displayPrice}</span>
+                <span className="text-sm pb-1 line-through" style={{ color: "#6b7280" }}>&#8377;1,599</span>
+                {!expired && (
+                  <span className="text-sm pb-1 font-semibold" style={{ color: "#4ade80" }}>84% off</span>
+                )}
+              </div>
+
+              <ul className="space-y-3 mb-4">
+                {pricingIncludes.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm" style={{ color: "#d1d5db" }}>
+                    <span
+                      className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: "#16a34a" }}
+                    >
+                      <Check size={11} color="white" strokeWidth={3} />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                {["Instant delivery", "No subscription"].map((t) => (
+                  <span key={t} className="text-xs flex items-center gap-1" style={{ color: "#6b7280" }}>
+                    <Check size={10} style={{ color: "#16a34a" }} />
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom — form */}
+            <div className="p-6 sm:p-8">
               <h1 className="text-white font-black text-2xl mb-1">You&apos;re One Step Away</h1>
               <p className="text-sm mb-6" style={{ color: "#9ca3af" }}>
                 Enter your details and complete payment securely via Razorpay. Your PDF is delivered the moment payment clears.
@@ -315,27 +302,19 @@ function CheckoutContent() {
                   )}
                 </button>
 
-                {/* UPI tip */}
-                <div
-                  className="rounded-lg px-3 py-2.5 text-xs text-center"
-                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#9ca3af" }}
-                >
-                  &#128241; Paying via UPI? Open your UPI app and approve the request within 5 minutes to complete the payment.
-                </div>
-
                 <p className="text-xs text-center flex items-center justify-center gap-1" style={{ color: "#6b7280" }}>
                   <Lock size={11} />
                   Powered by Razorpay &middot; 256-bit SSL encryption
                 </p>
               </form>
             </div>
-
-            <p className="text-xs text-center mt-4">
-              <Link href="/" className="hover:underline" style={{ color: "#7c3aed" }}>
-                &larr; Back to the sales page
-              </Link>
-            </p>
           </div>
+
+          <p className="text-xs text-center mt-4">
+            <Link href="/" className="hover:underline" style={{ color: "#7c3aed" }}>
+              &larr; Back to the sales page
+            </Link>
+          </p>
         </div>
       </div>
 
