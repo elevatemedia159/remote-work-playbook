@@ -142,7 +142,7 @@ function Agitation() {
   return (
     <section style={{ backgroundColor: "#f9fafb", padding: "56px 24px" }}>
       <div style={{ maxWidth: 420, margin: "0 auto", textAlign: "center" }}>
-        <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,28px)", color: "#0f172a", lineHeight: 1.25, marginBottom: 20 }}>
+        <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,28px)", color: "#0f172a", lineHeight: 1.25, marginBottom: 20, textWrap: "balance" } as React.CSSProperties}>
           You&apos;ve Applied to Dozens of Roles. Heard Back From Almost None.
         </h2>
         <p style={{ fontWeight: 400, fontSize: 15, color: "#475569", lineHeight: 1.75, margin: 0 }}>
@@ -170,7 +170,7 @@ function Mechanism() {
   return (
     <section style={{ backgroundColor: "#0f0a1e", padding: "56px 24px" }}>
       <div style={{ maxWidth: 420, margin: "0 auto" }}>
-        <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,26px)", color: "#ffffff", textAlign: "center", marginBottom: 32, lineHeight: 1.3 }}>
+        <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,26px)", color: "#ffffff", textAlign: "center", marginBottom: 32, lineHeight: 1.3, textWrap: "balance" } as React.CSSProperties}>
           Here&apos;s Exactly How the Plan Fixes That
         </h2>
         <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
@@ -200,7 +200,7 @@ function Stakes() {
   return (
     <section style={{ backgroundColor: "#f9fafb", padding: "56px 24px" }}>
       <div style={{ maxWidth: 420, margin: "0 auto", textAlign: "center" }}>
-        <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,26px)", color: "#0f172a", lineHeight: 1.25, marginBottom: 20 }}>
+        <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,26px)", color: "#0f172a", lineHeight: 1.25, marginBottom: 20, textWrap: "balance" } as React.CSSProperties}>
           The Real Price Isn&apos;t &#8377;99. It&apos;s Waiting.
         </h2>
         <p style={{ fontWeight: 400, fontSize: 15, color: "#475569", lineHeight: 1.75, margin: 0 }}>
