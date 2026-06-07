@@ -390,9 +390,9 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
-      <Stakes />
       <Agitation />
       <Mechanism />
+      <Stakes />
       <Pricing />
       <FAQ />
       <FinalCTA />
