@@ -1,11 +1,56 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+:root {
+  --bg-dark:        #0f0a1e;
+  --bg-light:       #f9fafb;
+  --purple-primary: #7c3aed;
+  --purple-light:   #a78bfa;
+  --text-muted:     #94a3b8;
+  --text-dark:      #0f172a;
+  --green-trust:    #22c55e;
+  --amber-star:     #f59e0b;
+  --font-display:   var(--font-syne), system-ui, sans-serif;
+  --font-body:      var(--font-dm-sans), system-ui, sans-serif;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
   background: #ffffff;
   color: #111827;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+/* CTA button */
+.cta-btn {
+  display: block;
+  width: 100%;
+  height: 56px;
+  background: #7c3aed;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 56px;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.cta-btn:hover  { background: #6d28d9; }
+.cta-btn:active { transform: scale(0.98); background: #5b21b6; }
+
+.cta-btn--pulse {
+  animation: pulse-glow 2s ease-in-out 3s infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0); }
+  50%       { box-shadow: 0 0 0 10px rgba(124,58,237,0.25); }
 }
