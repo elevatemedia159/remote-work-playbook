@@ -73,16 +73,6 @@ function Hero() {
 
       <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: 440, display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
 
-        {/* Trust badge */}
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: 6,
-          padding: "6px 14px", borderRadius: 999,
-          backgroundColor: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.3)",
-          fontSize: 12, color: "#a78bfa", fontWeight: 500, lineHeight: 1.4, textAlign: "center",
-        }}>
-          🇮🇳 For India professionals who are done being ignored by remote recruiters
-        </div>
-
         {/* Headline */}
         <h1 style={{ fontWeight: 800, fontSize: "clamp(26px, 6.5vw, 38px)", lineHeight: 1.2, color: "#ffffff", margin: 0 }}>
           You&apos;re Qualified for USD Remote Roles.{" "}

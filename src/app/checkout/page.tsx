@@ -129,8 +129,18 @@ function CheckoutContent() {
       {/* Nav */}
       <nav className="border-b px-4 py-4" style={{ borderColor: "rgba(124,58,237,0.2)" }}>
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <Link href="/" className="text-white font-extrabold text-lg tracking-tight">
-            Remote <span style={{ color: "#a78bfa" }}>Work</span> Playbook
+          <Link href="/">
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <polyline points="4,22 14,13 24,22" stroke="#a78bfa" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                <polyline points="4,15 14,6  24,15" stroke="#9061f9" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                <polyline points="4,8  14,-1 24,8"  stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+                <span style={{ fontWeight: 700, fontSize: 14, color: "#ffffff", letterSpacing: "0.12em" }}>ELEVATE</span>
+                <span style={{ fontWeight: 700, fontSize: 8, color: "#a78bfa", letterSpacing: "0.2em", marginTop: 2 }}>MEDIA</span>
+              </div>
+            </div>
           </Link>
           <div className="flex items-center gap-1.5 text-xs" style={{ color: "#6b7280" }}>
             <Lock size={12} style={{ color: "#16a34a" }} />
