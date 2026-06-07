@@ -2,19 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import Razorpay from "razorpay";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
-const OFFER_PRICE_PAISE   = 9900;  // ₹99
-const REGULAR_PRICE_PAISE = 14900; // ₹149
-const OFFER_DURATION_MS   = 10 * 60 * 1000;
+const PRICE_PAISE = 14900; // ₹149
 const CURRENCY = "INR";
 
-function resolveAmount(offerStartTime: number | null): number {
-  if (!offerStartTime || typeof offerStartTime !== "number") return REGULAR_PRICE_PAISE;
-  if (offerStartTime > Date.now()) return REGULAR_PRICE_PAISE;
-  return Date.now() - offerStartTime < OFFER_DURATION_MS ? OFFER_PRICE_PAISE : REGULAR_PRICE_PAISE;
-}
-
 export async function POST(req: NextRequest) {
-  const { name, email, offerStartTime, utmSource } = await req.json();
+  const { name, email, utmSource } = await req.json();
 
   if (!name?.trim() || !email?.trim()) {
     return NextResponse.json({ error: "Name and email are required." }, { status: 400 });
@@ -24,7 +16,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
-  const amount = resolveAmount(offerStartTime);
+  const amount = PRICE_PAISE;
   const amountRupees = amount / 100;
 
   // Capture country from Vercel edge headers

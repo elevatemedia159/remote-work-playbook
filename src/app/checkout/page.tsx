@@ -3,11 +3,7 @@
 import { useState, FormEvent, useEffect, Suspense } from "react";
 import { Check, Lock, ArrowRight, Loader2 } from "lucide-react";
 import Link from "next/link";
-import CountdownTimer, { useCountdown } from "@/components/CountdownTimer";
 import { useRouter, useSearchParams } from "next/navigation";
-
-const STORAGE_KEY = "rwp_offer_start";
-const OFFER_DURATION_MS = 10 * 60 * 1000;
 
 declare global {
   interface Window {
@@ -28,13 +24,12 @@ function CheckoutContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const utmSource = searchParams.get("utm_source");
-  const { expired } = useCountdown();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const displayPrice = expired ? "149" : "99";
+  const displayPrice = "149";
 
   // Load Razorpay script on mount
   useEffect(() => {
@@ -59,7 +54,6 @@ function CheckoutContent() {
         body: JSON.stringify({
             name,
             email,
-            offerStartTime: parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10) || null,
             utmSource: utmSource ?? null,
           }),
       });
@@ -132,7 +126,6 @@ function CheckoutContent() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#0f0a1e" }}>
-      <CountdownTimer variant="banner" />
       {/* Nav */}
       <nav className="border-b px-4 py-4" style={{ borderColor: "rgba(124,58,237,0.2)" }}>
         <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -165,7 +158,7 @@ function CheckoutContent() {
                   className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full"
                   style={{ backgroundColor: "rgba(124,58,237,0.25)", color: "#c4b5fd" }}
                 >
-                  EARLY BIRD PRICING
+                  LIMITED TIME OFFER
                 </span>
               </div>
 
@@ -179,9 +172,7 @@ function CheckoutContent() {
               <div className="flex items-end gap-3 mb-5">
                 <span className="text-5xl font-black text-white">&#8377;{displayPrice}</span>
                 <span className="text-sm pb-1 line-through" style={{ color: "#6b7280" }}>&#8377;1,599</span>
-                {!expired && (
-                  <span className="text-sm pb-1 font-semibold" style={{ color: "#4ade80" }}>84% off</span>
-                )}
+                <span className="text-sm pb-1 font-semibold" style={{ color: "#4ade80" }}>91% off</span>
               </div>
 
               <ul className="space-y-3 mb-4">
@@ -278,9 +269,6 @@ function CheckoutContent() {
                     {error}
                   </div>
                 )}
-
-                {/* Timer */}
-                <CountdownTimer variant="inline" />
 
                 {/* Submit */}
                 <button
