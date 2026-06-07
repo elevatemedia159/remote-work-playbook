@@ -125,21 +125,15 @@ function Hero() {
           <CountdownTimer variant="inline" />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center px-2">
+        <div className="w-full max-w-sm px-2">
           <a
             href={CHECKOUT_URL}
-            className="px-6 py-3.5 rounded-xl font-bold text-white text-base transition-all hover:scale-105 hover:shadow-lg text-center"
+            className="block w-full px-6 py-4 rounded-xl font-bold text-white text-lg transition-all hover:scale-105 hover:shadow-lg text-center"
             style={{ backgroundColor: "#7c3aed", boxShadow: "0 4px 24px rgba(124,58,237,0.35)" }}
           >
             Get the PDF Guide{" "}
             <span style={{ textDecoration: "line-through", opacity: 0.6 }}>&#8377;1,599</span>
             {" "}&#8377;{expired ? "149" : "99"}
-          </a>
-          <a
-            href="#inside"
-            className="px-6 py-3.5 rounded-xl font-semibold text-white text-base border border-white/30 hover:border-white/60 transition-colors text-center"
-          >
-            See what&apos;s inside
           </a>
         </div>
 

@@ -315,6 +315,14 @@ function CheckoutContent() {
                   )}
                 </button>
 
+                {/* UPI tip */}
+                <div
+                  className="rounded-lg px-3 py-2.5 text-xs text-center"
+                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#9ca3af" }}
+                >
+                  &#128241; Paying via UPI? Open your UPI app and approve the request within 5 minutes to complete the payment.
+                </div>
+
                 <p className="text-xs text-center flex items-center justify-center gap-1" style={{ color: "#6b7280" }}>
                   <Lock size={11} />
                   Powered by Razorpay &middot; 256-bit SSL encryption
