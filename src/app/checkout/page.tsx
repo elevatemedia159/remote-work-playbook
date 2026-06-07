@@ -76,9 +76,21 @@ function CheckoutContent() {
       currency: orderData.currency,
       name: "Elevate Media",
       description: "The Remote Work Playbook – Updated June 2026",
+      image: "https://elevatemedia159.in/icon.svg",
       order_id: orderData.orderId,
-      prefill: { name, email },
+      prefill: { name, email, contact: "" },
       theme: { color: "#7c3aed" },
+      config: {
+        display: {
+          blocks: {
+            upi: { name: "Pay via UPI", instruments: [{ method: "upi" }] },
+            card: { name: "Cards & Netbanking", instruments: [{ method: "card" }, { method: "netbanking" }] },
+            wallet: { name: "Wallets", instruments: [{ method: "wallet" }] },
+          },
+          sequence: ["block.upi", "block.card", "block.wallet"],
+          preferences: { show_default_blocks: false },
+        },
+      },
       modal: {
         ondismiss: () => {
           setLoading(false);
