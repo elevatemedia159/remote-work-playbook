@@ -280,13 +280,29 @@ function FAQ() {
       q: "How fast do I get it?",
       a: "Two minutes. Pay, and the download link hits your email instantly. UPI, cards, netbanking, all via Razorpay.",
     },
+    {
+      q: "Do I need to apply to hundreds of jobs?",
+      a: "No. The system is built around quality over volume — finding the right boards, using the right search strings, and reaching the right companies. Less spray and pray, more targeted outreach that actually gets responses.",
+    },
+    {
+      q: "What if I already have a full-time job?",
+      a: "Each day's tasks are designed to take 45–60 minutes. You can run this alongside your current job without it taking over your evenings. Most people do Day 1 on a weekend and keep the momentum going on weeknights.",
+    },
+    {
+      q: "Is there a refund policy?",
+      a: "Because this is an instant-download digital product, we don't offer refunds once the file is delivered. That said, if you have any issues accessing your download, reach out to elevate.media159@gmail.com and we'll sort it immediately.",
+    },
+    {
+      q: "Will this still work a few months from now?",
+      a: "Yes. The job boards, search logic, and outreach approach are built around how remote hiring actually works, not a short-term trend. The June 2026 update refreshes the board list and search strings to reflect what's active right now.",
+    },
   ];
 
   return (
     <section style={{ backgroundColor: "#f9fafb", padding: "56px 24px" }}>
       <div style={{ maxWidth: 420, margin: "0 auto" }}>
         <h2 style={{ fontWeight: 700, fontSize: 24, color: "#0f172a", textAlign: "center", marginBottom: 28 }}>
-          The 3 Things Holding You Back
+          Common Questions
         </h2>
         <div>
           {faqs.map(({ q, a }, idx) => (
