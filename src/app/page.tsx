@@ -105,7 +105,7 @@ function Hero() {
             style={{ border: "1px solid rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.04)" }}
           >
             <div className="flex items-center justify-between px-5 py-4">
-              <span className="text-sm" style={{ color: "#6b7280" }}>Standard pricing</span>
+              <span className="text-sm" style={{ color: "#6b7280" }}>Offer price</span>
               <div className="text-right">
                 <p className="text-xl font-black text-white">&#8377;149</p>
                 <p className="text-xs line-through" style={{ color: "#4b5563" }}>&#8377;1,599</p>
