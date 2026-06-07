@@ -74,10 +74,10 @@ function Hero() {
       <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: 440, display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
 
         {/* Headline */}
-        <h1 style={{ fontWeight: 800, fontSize: "clamp(26px, 6.5vw, 38px)", lineHeight: 1.25, color: "#ffffff", margin: 0 }}>
+        <h1 style={{ fontWeight: 800, fontSize: "clamp(26px, 6.5vw, 38px)", lineHeight: 1.2, color: "#ffffff", margin: 0 }}>
           You&apos;re Qualified for USD Remote Roles
-          <br /><br />
-          <span style={{ color: "#a78bfa" }}>So Why Is Your Inbox Still Empty?</span>
+          <br />
+          <span style={{ color: "#a78bfa", display: "block", marginTop: "0.35em" }}>So Why Is Your Inbox Still Empty?</span>
         </h1>
 
         {/* Subheadline */}
