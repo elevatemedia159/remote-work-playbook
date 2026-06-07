@@ -1,9 +1,20 @@
 "use client";
 
-import { useEffect, useRef, Suspense } from "react";
-import { Check, Lock } from "lucide-react";
+import { useState, FormEvent, useEffect, Suspense } from "react";
+import { Check, Lock, ArrowRight, Loader2 } from "lucide-react";
 import Link from "next/link";
 import CountdownTimer, { useCountdown } from "@/components/CountdownTimer";
+import { useRouter, useSearchParams } from "next/navigation";
+
+const STORAGE_KEY = "rwp_offer_start";
+const OFFER_DURATION_MS = 10 * 60 * 1000;
+
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Razorpay: any;
+  }
+}
 
 const pricingIncludes = [
   "Full 7-day PDF guide (print-ready, 12 pages)",
@@ -13,33 +24,115 @@ const pricingIncludes = [
   "Week 2 planning framework",
 ];
 
-function RazorpayButton() {
-  const formRef = useRef<HTMLFormElement>(null);
+function CheckoutContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const utmSource = searchParams.get("utm_source");
+  const { expired } = useCountdown();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const displayPrice = expired ? "149" : "99";
+
+  // Load Razorpay script on mount
   useEffect(() => {
-    const form = formRef.current;
-    if (!form) return;
     const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/payment-button.js";
-    script.setAttribute("data-payment_button_id", "pl_SydNeYrsdI5r1s");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.async = true;
-    form.appendChild(script);
-    return () => {
-      if (form.contains(script)) form.removeChild(script);
-    };
+    document.body.appendChild(script);
+    return () => { document.body.removeChild(script); };
   }, []);
 
-  return <form ref={formRef} />;
-}
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
-function CheckoutContent() {
-  const { expired } = useCountdown();
-  const displayPrice = expired ? "149" : "99";
+    // Step 1 — create order + save lead
+    let orderData;
+    try {
+      const res = await fetch("/api/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name,
+            email,
+            offerStartTime: parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10) || null,
+            utmSource: utmSource ?? null,
+          }),
+      });
+      orderData = await res.json();
+      if (!res.ok) {
+        setError(orderData.error || "Something went wrong. Please try again.");
+        setLoading(false);
+        return;
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+      setLoading(false);
+      return;
+    }
+
+    // Step 2 — open Razorpay modal
+    const options = {
+      key: orderData.keyId,
+      amount: orderData.amount,
+      currency: orderData.currency,
+      name: "Elevate Media",
+      description: "The Remote Work Playbook v2",
+      order_id: orderData.orderId,
+      prefill: { name, email },
+      theme: { color: "#7c3aed" },
+      modal: {
+        ondismiss: () => {
+          setLoading(false);
+          setError("Payment was cancelled. You can try again whenever you are ready.");
+        },
+      },
+      handler: async (response: {
+        razorpay_payment_id: string;
+        razorpay_order_id: string;
+        razorpay_signature: string;
+      }) => {
+        // Step 3 — verify payment server-side
+        try {
+          const res = await fetch("/api/verify-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              name,
+              email,
+            }),
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            setError(data.error || "Payment verification failed. Please contact support.");
+            setLoading(false);
+            return;
+          }
+          // Step 4 — store for analytics then redirect
+          localStorage.setItem("rwp_payment_id", response.razorpay_payment_id);
+          localStorage.setItem("rwp_amount_paid", String(orderData.amount / 100));
+          router.push("/thank-you");
+        } catch {
+          setError("Could not verify payment. Please contact support.");
+          setLoading(false);
+        }
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  }
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#0f0a1e" }}>
       <CountdownTimer variant="banner" />
-
       {/* Nav */}
       <nav className="border-b px-4 py-4" style={{ borderColor: "rgba(124,58,237,0.2)" }}>
         <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -115,23 +208,105 @@ function CheckoutContent() {
               </div>
             </div>
 
-            {/* Bottom — payment button */}
+            {/* Bottom — form */}
             <div className="p-6 sm:p-8">
               <h1 className="text-white font-black text-2xl mb-1">You&apos;re One Step Away</h1>
               <p className="text-sm mb-6" style={{ color: "#9ca3af" }}>
-                Complete payment securely via Razorpay. Your PDF is delivered the moment payment clears.
+                Enter your details and complete payment securely via Razorpay. Your PDF is delivered the moment payment clears.
               </p>
 
-              <CountdownTimer variant="inline" />
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                {/* Name */}
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-1.5" style={{ color: "#d1d5db" }}>
+                    Full name
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    autoComplete="name"
+                    placeholder="e.g. Priya Sharma"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none transition-all"
+                    style={{
+                      backgroundColor: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(124,58,237,0.35)",
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = "#7c3aed")}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(124,58,237,0.35)")}
+                  />
+                </div>
 
-              <div className="mt-4">
-                <RazorpayButton />
-              </div>
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-1.5" style={{ color: "#d1d5db" }}>
+                    Email address
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none transition-all"
+                    style={{
+                      backgroundColor: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(124,58,237,0.35)",
+                    }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = "#7c3aed")}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(124,58,237,0.35)")}
+                  />
+                  <p className="text-xs mt-1.5" style={{ color: "#6b7280" }}>
+                    We&apos;ll send your PDF here, so double-check it&apos;s correct.
+                  </p>
+                </div>
 
-              <p className="text-xs text-center flex items-center justify-center gap-1 mt-4" style={{ color: "#6b7280" }}>
-                <Lock size={11} />
-                Powered by Razorpay &middot; 256-bit SSL encryption
-              </p>
+                {/* Error */}
+                {error && (
+                  <div
+                    className="rounded-lg px-4 py-3 text-sm"
+                    style={{
+                      backgroundColor: "rgba(239,68,68,0.12)",
+                      color: "#fca5a5",
+                      border: "1px solid rgba(239,68,68,0.25)",
+                    }}
+                  >
+                    {error}
+                  </div>
+                )}
+
+                {/* Timer */}
+                <CountdownTimer variant="inline" />
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-lg font-semibold text-white text-base transition-opacity disabled:opacity-70"
+                  style={{ backgroundColor: "#7c3aed" }}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      Opening payment...
+                    </>
+                  ) : (
+                    <>
+                      Pay &#8377;{displayPrice} Securely
+                      <ArrowRight size={18} />
+                    </>
+                  )}
+                </button>
+
+                <p className="text-xs text-center flex items-center justify-center gap-1" style={{ color: "#6b7280" }}>
+                  <Lock size={11} />
+                  Powered by Razorpay &middot; 256-bit SSL encryption
+                </p>
+              </form>
             </div>
           </div>
 
