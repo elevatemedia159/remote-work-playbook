@@ -223,9 +223,9 @@ function CheckoutContent() {
                 borderColor: "rgba(124,58,237,0.45)",
               }}
             >
-              <h1 className="text-white font-black text-2xl mb-1">Almost there!</h1>
+              <h1 className="text-white font-black text-2xl mb-1">You&apos;re One Step Away</h1>
               <p className="text-sm mb-6" style={{ color: "#9ca3af" }}>
-                Enter your details and complete payment securely via Razorpay.
+                Enter your details and complete payment securely via Razorpay. Your PDF is delivered the moment payment clears.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4" noValidate>
@@ -274,7 +274,7 @@ function CheckoutContent() {
                     onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(124,58,237,0.35)")}
                   />
                   <p className="text-xs mt-1.5" style={{ color: "#6b7280" }}>
-                    Your PDF will be delivered to this email.
+                    We&apos;ll send your PDF here, so double-check it&apos;s correct.
                   </p>
                 </div>
 

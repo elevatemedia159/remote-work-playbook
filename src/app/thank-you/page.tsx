@@ -10,18 +10,18 @@ export const metadata = {
 const steps = [
   {
     icon: Mail,
-    title: "We have sent your download link",
-    desc: "Check the email address you used at checkout. The download link is in your inbox right now. If you do not see it within 2 minutes, please check your spam or promotions folder — it sometimes lands there.",
+    title: "Check your inbox for the download link",
+    desc: "The link is in your email right now. If it's not in your inbox, check spam or promotions — it sometimes lands there.",
   },
   {
     icon: Download,
-    title: "Download your PDF",
-    desc: "Open the email from Remote Work Playbook and click the download button. Save the PDF to your phone or desktop so you can follow along each day.",
+    title: "Download your PDF and save it",
+    desc: "Save it to your phone and desktop so it's always handy whenever you need it.",
   },
   {
     icon: ArrowRight,
-    title: "Start with Day 1 today",
-    desc: "Day 1 takes about 45 minutes. Set up your LinkedIn headline, create your job alerts, and build your target company list.",
+    title: "Start Day 1 today (just 45 mins)",
+    desc: "Polish your LinkedIn headline, set up job alerts, and build your target company list. That's your entire first day done.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function ThankYouPage() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-black text-white mb-3">
-            You&apos;re in. Welcome!
+            You&apos;re in. Welcome aboard.
           </h1>
           <p className="text-base mb-8 sm:mb-10 px-2" style={{ color: "#9ca3af" }}>
             Your purchase of{" "}
@@ -99,10 +99,10 @@ export default function ThankYouPage() {
           <div className="border-t mb-6 sm:mb-8" style={{ borderColor: "rgba(255,255,255,0.08)" }} />
 
           <p className="text-sm mb-6" style={{ color: "#6b7280" }}>
-            Questions or issues?{" "}
+            Questions or trouble with your download?{" "}
             <a href="mailto:elevate.media159@gmail.com" className="underline hover:no-underline" style={{ color: "#a78bfa" }}>
-              Reach out to us at elevate.media159@gmail.com
-            </a>
+              Email elevate.media159@gmail.com
+            </a>{" "}and we reply fast.
           </p>
 
           <Link href="/" className="inline-block text-sm font-medium transition-opacity hover:opacity-80" style={{ color: "#6b7280" }}>
