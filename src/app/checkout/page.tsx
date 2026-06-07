@@ -230,7 +230,7 @@ function CheckoutContent() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    className="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg text-base text-white placeholder-gray-500 outline-none transition-all"
                     style={{
                       backgroundColor: "rgba(255,255,255,0.06)",
                       border: "1px solid rgba(124,58,237,0.35)",
@@ -253,7 +253,7 @@ function CheckoutContent() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg text-base text-white placeholder-gray-500 outline-none transition-all"
                     style={{
                       backgroundColor: "rgba(255,255,255,0.06)",
                       border: "1px solid rgba(124,58,237,0.35)",
