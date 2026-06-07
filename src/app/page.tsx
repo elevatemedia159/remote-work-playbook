@@ -109,21 +109,33 @@ function Hero() {
         </p>
 
         {/* Offer banner */}
-        <div
-          className="w-full max-w-md rounded-xl px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-2"
-          style={{
-            backgroundColor: expired ? "rgba(255,255,255,0.04)" : "rgba(124,58,237,0.15)",
-            border: `1px solid ${expired ? "rgba(255,255,255,0.1)" : "rgba(124,58,237,0.4)"}`,
-          }}
-        >
-          <div className="flex items-center gap-2 text-sm">
-            <Zap size={14} style={{ color: expired ? "#6b7280" : "#a78bfa" }} />
-            <span style={{ color: expired ? "#6b7280" : "#c4b5fd" }}>
-              {expired ? "Early bird offer expired" : "Early bird offer, limited time"}
-            </span>
+        {!expired ? (
+          <div
+            className="w-full max-w-md rounded-xl px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-2"
+            style={{
+              backgroundColor: "rgba(124,58,237,0.15)",
+              border: "1px solid rgba(124,58,237,0.4)",
+            }}
+          >
+            <div className="flex items-center gap-2 text-sm">
+              <Zap size={14} style={{ color: "#a78bfa" }} />
+              <span style={{ color: "#c4b5fd" }}>Early bird offer, limited time</span>
+            </div>
+            <CountdownTimer variant="inline" />
           </div>
-          <CountdownTimer variant="inline" />
-        </div>
+        ) : (
+          <div
+            className="w-full max-w-md rounded-xl px-4 py-2.5 flex items-center justify-center gap-2 text-sm"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "#6b7280",
+            }}
+          >
+            <Zap size={14} />
+            <span>Early bird offer expired · paying &#8377;149 today</span>
+          </div>
+        )}
 
         <div className="w-full max-w-sm px-2">
           <a
