@@ -13,12 +13,14 @@ function Nav() {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50"
-      style={{ backgroundColor: "#0f0a1e", borderBottom: "1px solid rgba(124,58,237,0.15)" }}
+      style={{ backgroundColor: "#0f0a1e", borderBottom: "1px solid rgba(124,58,237,0.18)" }}
     >
-      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-center">
-        <span className="text-white font-extrabold text-lg tracking-tight">
-          Remote <span style={{ color: "#a78bfa" }}>Work</span> Playbook
-        </span>
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-center">
+        <img
+          src="/elevate-media-logo.svg"
+          alt="Elevate Media"
+          style={{ height: "36px", width: "auto" }}
+        />
       </div>
     </nav>
   );
@@ -31,7 +33,7 @@ function Hero() {
 
   return (
     <section
-      className="relative flex flex-col items-center justify-center text-center px-4 pt-24 pb-14"
+      className="relative flex flex-col items-center justify-center text-center px-4 pt-28 pb-16"
       style={{ backgroundColor: "#0f0a1e" }}
     >
       <div
@@ -39,56 +41,83 @@ function Hero() {
         style={{ background: "radial-gradient(ellipse 60% 40% at 50% 30%, rgba(124,58,237,0.18) 0%, transparent 70%)" }}
       />
 
-      <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center gap-4">
+      <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center gap-6">
 
-        {/* Offer banner */}
+        {/* Headline */}
+        <div className="flex flex-col items-center gap-3">
+          <h1
+            className="font-black leading-tight tracking-tight text-center"
+            style={{ fontSize: "clamp(28px, 6vw, 50px)", color: "#ffffff" }}
+          >
+            Land a Remote Job That{" "}
+            <span style={{ color: "#a78bfa" }}>Pays in USD</span>{" "}
+            in 7 Days
+          </h1>
+          <p className="text-sm sm:text-base leading-relaxed text-center max-w-sm" style={{ color: "#9ca3af" }}>
+            A step-by-step PDF system for India-based professionals. Job boards, search templates, and daily checklists. All in one place.
+          </p>
+        </div>
+
+        {/* Offer section */}
         {!expired ? (
           <div
-            className="w-full max-w-sm rounded-xl px-4 py-2.5 flex items-center justify-between gap-2"
-            style={{ backgroundColor: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.4)" }}
+            className="w-full max-w-sm rounded-2xl overflow-hidden"
+            style={{ border: "1px solid rgba(124,58,237,0.5)", backgroundColor: "rgba(124,58,237,0.08)" }}
           >
-            <div className="flex items-center gap-2 text-xs">
-              <Zap size={12} style={{ color: "#a78bfa" }} />
-              <span style={{ color: "#c4b5fd" }}>Limited time offer</span>
+            {/* Top strip */}
+            <div
+              className="flex items-center justify-center gap-2 px-4 py-2"
+              style={{ backgroundColor: "rgba(124,58,237,0.25)" }}
+            >
+              <Zap size={12} style={{ color: "#c4b5fd" }} />
+              <span className="text-xs font-semibold tracking-wide uppercase" style={{ color: "#c4b5fd" }}>
+                Early bird offer
+              </span>
             </div>
-            <CountdownTimer variant="inline" />
+            {/* Timer row */}
+            <div className="flex items-center justify-between px-5 py-3">
+              <div>
+                <p className="text-xs mb-0.5" style={{ color: "#9ca3af" }}>Price goes up in</p>
+                <CountdownTimer variant="inline" />
+              </div>
+              <div className="text-right">
+                <p className="text-2xl font-black text-white">&#8377;99</p>
+                <p className="text-xs line-through" style={{ color: "#6b7280" }}>&#8377;1,599</p>
+              </div>
+            </div>
           </div>
-        ) : null}
-
-        <h1
-          className="font-black leading-tight tracking-tight"
-          style={{ fontSize: "clamp(30px, 5vw, 52px)", color: "#ffffff" }}
-        >
-          Land a Remote Job That{" "}
-          <span style={{ color: "#a78bfa" }}>Pays in USD</span>{" "}
-          in 7 Days
-        </h1>
-
-        <p className="text-base leading-relaxed max-w-md" style={{ color: "#9ca3af" }}>
-          A step-by-step PDF system for India-based professionals. 28 curated job boards, 35+ search templates, and a 42-task daily checklist.
-        </p>
+        ) : (
+          <div
+            className="w-full max-w-sm rounded-xl px-5 py-3 flex items-center justify-between"
+            style={{ backgroundColor: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)" }}
+          >
+            <span className="text-sm" style={{ color: "#6b7280" }}>Standard pricing</span>
+            <div className="text-right">
+              <p className="text-xl font-black text-white">&#8377;149</p>
+              <p className="text-xs line-through" style={{ color: "#4b5563" }}>&#8377;1,599</p>
+            </div>
+          </div>
+        )}
 
         {/* Social proof */}
         <div className="flex items-center gap-2">
           <div className="flex">
-            {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#f59e0b" style={{ color: "#f59e0b" }} />)}
+            {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#f59e0b" style={{ color: "#f59e0b" }} />)}
           </div>
-          <span className="text-sm" style={{ color: "#9ca3af" }}>4.6 · 567 readers</span>
+          <span className="text-xs" style={{ color: "#9ca3af" }}>4.6 stars · 567 readers</span>
         </div>
 
         {/* CTA */}
-        <div className="w-full max-w-xs">
+        <div className="w-full max-w-xs flex flex-col gap-2">
           <a
             href={CHECKOUT_URL}
-            className="block w-full py-4 rounded-xl font-bold text-white text-lg text-center transition-all active:scale-95"
-            style={{ backgroundColor: "#7c3aed", boxShadow: "0 4px 24px rgba(124,58,237,0.4)" }}
+            className="block w-full py-4 rounded-xl font-bold text-white text-lg text-center"
+            style={{ backgroundColor: "#7c3aed", boxShadow: "0 6px 28px rgba(124,58,237,0.45)" }}
           >
-            Get Instant Access &nbsp;
-            <span style={{ textDecoration: "line-through", opacity: 0.55, fontSize: "0.85em" }}>&#8377;1,599</span>
-            {" "}&#8377;{expired ? "149" : "99"}
+            Get Instant Access · &#8377;{expired ? "149" : "99"}
           </a>
-          <p className="text-xs text-center mt-2 flex items-center justify-center gap-1" style={{ color: "#6b7280" }}>
-            <Lock size={10} /> Secure payment via Razorpay · Instant delivery
+          <p className="text-xs text-center flex items-center justify-center gap-1" style={{ color: "#4b5563" }}>
+            <Lock size={10} /> Razorpay · Instant PDF delivery
           </p>
         </div>
       </div>
@@ -102,7 +131,7 @@ function WhatYouGet() {
   const items = [
     { icon: "📋", text: "28 curated job boards with usage notes for each" },
     { icon: "🔍", text: "35+ copy-paste search strings for USD-paying remote roles" },
-    { icon: "✅", text: "42-task daily checklist — 6 clear actions per day" },
+    { icon: "✅", text: "42-task daily checklist, 6 clear actions per day" },
     { icon: "📅", text: "7-day structured plan from profile setup to first applications" },
     { icon: "📈", text: "Week 2 scaling framework to double down on what works" },
     { icon: "💡", text: "7 expert tips on ATS, outreach, salary benchmarking" },
@@ -234,7 +263,7 @@ function Pricing() {
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 
 const faqs = [
-  { q: "Who is this for?", a: "Any professional with 2+ years of experience in any function — engineering, design, data, marketing, finance, operations, and more. Every search template uses a [your role] placeholder you fill in yourself." },
+  { q: "Who is this for?", a: "Any professional with 2+ years of experience in any function: engineering, design, data, marketing, finance, operations, and more. Every search template uses a [your role] placeholder you fill in yourself." },
   { q: "Will US companies hire someone based in India?", a: "Yes. The guide targets remote-first startups and scale-ups that actively hire globally, with no visa sponsorship required. Every job board and search string is filtered for this." },
   { q: "How do I get the guide after paying?", a: "Instantly. We email your download link the moment payment is confirmed. Check spam if you don't see it within 2 minutes." },
   { q: "What payment methods are accepted?", a: "UPI (GPay, PhonePe, Paytm), credit and debit cards, and netbanking — via Razorpay." },

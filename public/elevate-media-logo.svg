@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="none">
+  <!-- Triple chevron icon -->
+  <g>
+    <!-- Top chevron (darkest) -->
+    <polyline points="8,14 16,7 24,14" stroke="#7c3aed" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Middle chevron -->
+    <polyline points="8,21 16,14 24,21" stroke="#9061f9" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Bottom chevron (lightest) -->
+    <polyline points="8,28 16,21 24,28" stroke="#a78bfa" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <!-- ELEVATE text -->
+  <text x="34" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#ffffff" letter-spacing="0.5">ELEVATE</text>
+  <!-- MEDIA text -->
+  <text x="35" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="500" fill="#a78bfa" letter-spacing="3.5">MEDIA</text>
+</svg>
