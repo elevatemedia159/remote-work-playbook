@@ -81,7 +81,7 @@ function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p style={{ fontWeight: 400, fontSize: 15, color: "#94a3b8", lineHeight: 1.65, margin: 0, maxWidth: 380 }}>
+        <p style={{ fontWeight: 400, fontSize: 16, color: "#94a3b8", lineHeight: 1.65, margin: 0, maxWidth: 380 }}>
           It&apos;s not your skills. It&apos;s your system. This is the exact 7-day plan that gets India-based professionals in front of companies that pay in dollars.
         </p>
 
@@ -145,7 +145,7 @@ function Agitation() {
         <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,28px)", color: "#0f172a", lineHeight: 1.25, marginBottom: 20 }}>
           You&apos;ve Applied to Dozens of Roles. Heard Back From Almost None.
         </h2>
-        <p style={{ fontWeight: 400, fontSize: 15, color: "#475569", lineHeight: 1.75, margin: 0 }}>
+        <p style={{ fontWeight: 400, fontSize: 16, color: "#475569", lineHeight: 1.75, margin: 0 }}>
           Here&apos;s the part nobody tells you: the problem usually isn&apos;t you. It&apos;s that you&apos;re applying the same way as 10,000 other people, to the same handful of job boards, with the same generic profile. Remote USD roles get flooded. If you&apos;re not searching where the competition isn&apos;t and reaching out the way that actually gets replies, you stay invisible. No matter how good you are.
         </p>
       </div>
@@ -180,7 +180,7 @@ function Mechanism() {
               borderBottom: i < items.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none",
             }}>
               <span style={{ fontSize: 20, lineHeight: 1.3, flexShrink: 0 }}>{icon}</span>
-              <span style={{ fontWeight: 400, fontSize: 15, color: "#cbd5e1", lineHeight: 1.6 }}>{text}</span>
+              <span style={{ fontWeight: 400, fontSize: 16, color: "#cbd5e1", lineHeight: 1.6 }}>{text}</span>
             </li>
           ))}
         </ul>
@@ -203,7 +203,7 @@ function Stakes() {
         <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,26px)", color: "#0f172a", lineHeight: 1.25, marginBottom: 20 }}>
           The Real Price Isn&apos;t &#8377;99. It&apos;s Waiting.
         </h2>
-        <p style={{ fontWeight: 400, fontSize: 15, color: "#475569", lineHeight: 1.75, margin: 0 }}>
+        <p style={{ fontWeight: 400, fontSize: 16, color: "#475569", lineHeight: 1.75, margin: 0 }}>
           Every month you keep applying the old way is a month you stay on a rupee salary while the same roles, paying 3x to 5x in USD, go to someone with a system. &#8377;99 is less than a dinner out. The cost of doing nothing is another quarter of your career spent waiting for a reply that isn&apos;t coming.
         </p>
       </div>
