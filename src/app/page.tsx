@@ -74,8 +74,9 @@ function Hero() {
       <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: 440, display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
 
         {/* Headline */}
-        <h1 style={{ fontWeight: 800, fontSize: "clamp(26px, 6.5vw, 38px)", lineHeight: 1.2, color: "#ffffff", margin: 0 }}>
-          You&apos;re Qualified for USD Remote Roles.<br />
+        <h1 style={{ fontWeight: 800, fontSize: "clamp(26px, 6.5vw, 38px)", lineHeight: 1.25, color: "#ffffff", margin: 0 }}>
+          You&apos;re Qualified for USD Remote Roles
+          <br /><br />
           <span style={{ color: "#a78bfa" }}>So Why Is Your Inbox Still Empty?</span>
         </h1>
 
@@ -88,20 +89,34 @@ function Hero() {
         <div style={{
           width: "100%",
           backgroundColor: "rgba(255,255,255,0.04)",
-          border: "1px solid rgba(124,58,237,0.35)",
+          border: "1px solid rgba(124,58,237,0.4)",
           borderRadius: 16, overflow: "hidden",
-          boxShadow: "0 0 40px rgba(124,58,237,0.12)",
+          boxShadow: "0 0 48px rgba(124,58,237,0.18)",
         }}>
+          {/* Limited Time Offer banner */}
           <div style={{
-            display: "flex", alignItems: "center", justifyContent: "center",
-            padding: "10px 20px", backgroundColor: "rgba(124,58,237,0.2)",
+            background: "linear-gradient(90deg, #5b21b6 0%, #7c3aed 50%, #6d28d9 100%)",
+            padding: "10px 20px",
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
           }}>
-            <span style={{ fontWeight: 500, fontSize: 12, color: "#a78bfa" }}>⏳ Limited Time Offer</span>
+            <span style={{ fontSize: 14 }}>⏳</span>
+            <span style={{ fontWeight: 700, fontSize: 12, color: "#ffffff", letterSpacing: "0.08em", textTransform: "uppercase" }}>Limited Time Offer</span>
+            <span style={{
+              backgroundColor: "rgba(255,255,255,0.2)", color: "#ffffff",
+              fontWeight: 700, fontSize: 11, borderRadius: 999, padding: "2px 8px",
+            }}>91% OFF</span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px 4px" }}>
-            <span style={{ fontWeight: 400, fontSize: 15, color: "#64748b", textDecoration: "line-through" }}>&#8377;1,599</span>
-            <span style={{ fontWeight: 800, fontSize: 42, color: "#ffffff", lineHeight: 1 }}>&#8377;{price}</span>
+          {/* Price row */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "18px 20px 6px" }}>
+            <div>
+              <p style={{ margin: 0, fontWeight: 400, fontSize: 13, color: "#64748b", textDecoration: "line-through" }}>&#8377;1,599</p>
+              <p style={{ margin: "2px 0 0", fontWeight: 800, fontSize: 44, color: "#ffffff", lineHeight: 1 }}>&#8377;{price}</p>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <p style={{ margin: 0, fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>One-time</p>
+              <p style={{ margin: "2px 0 0", fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>Instant PDF</p>
+            </div>
           </div>
 
           <div style={{ padding: "12px 16px 16px" }}>
