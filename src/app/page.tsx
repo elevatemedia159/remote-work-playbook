@@ -270,7 +270,7 @@ function FAQ() {
     },
     {
       q: "Will this work if I've never had a remote job?",
-      a: "That's exactly who it's built for. India-based professionals with 2+ years of any work experience, looking to break into remote USD roles for the first time. You don't need remote experience. You need the system that gets you there.",
+      a: "That's exactly who it's built for. India-based professionals at any stage of their career, looking to break into remote USD roles for the first time. Whether you're just starting out or switching tracks entirely, you don't need remote experience. You need the system that gets you there.",
     },
     {
       q: "What if I'm not technical or not in IT?",
