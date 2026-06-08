@@ -28,6 +28,8 @@ function CheckoutContent() {
   const [loading, setLoading] = useState(false);
 
   const displayPrice = "29";
+  const [email, setEmail] = useState("");
+  const [emailTouched, setEmailTouched] = useState(false);
 
   // Load Razorpay script on mount
   useEffect(() => {
@@ -38,7 +40,11 @@ function CheckoutContent() {
     return () => { document.body.removeChild(script); };
   }, []);
 
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
   async function handlePay() {
+    setEmailTouched(true);
+    if (!emailValid) return;
     setError("");
     setLoading(true);
 
@@ -48,7 +54,7 @@ function CheckoutContent() {
       const res = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ utmSource: utmSource ?? null }),
+        body: JSON.stringify({ utmSource: utmSource ?? null, email: email.trim().toLowerCase() }),
       });
       orderData = await res.json();
       if (!res.ok) {
@@ -71,7 +77,7 @@ function CheckoutContent() {
       description: "By Elevate Media · Instant PDF download",
       image: "https://elevatemedia159.in/logo.png",
       order_id: orderData.orderId,
-      prefill: { email: "", contact: "" },
+      prefill: { email: email.trim(), contact: "" },
       theme: { color: "#7c3aed" },
       modal: {
         ondismiss: () => {
@@ -92,6 +98,7 @@ function CheckoutContent() {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
+              email: email.trim().toLowerCase(),
             }),
           });
           const data = await res.json();
@@ -201,9 +208,32 @@ function CheckoutContent() {
 
             {/* Pay button */}
             <div className="p-6 sm:p-8">
-              <p className="text-sm mb-6 text-center" style={{ color: "#9ca3af" }}>
-                Tap below to pay securely via Razorpay. Your PDF download link is emailed to you the moment payment clears.
+              <p className="text-sm mb-4 text-center" style={{ color: "#9ca3af" }}>
+                Enter your email — we&rsquo;ll send your PDF download link here instantly after payment.
               </p>
+
+              <div className="mb-5">
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => setEmailTouched(true)}
+                  className="w-full rounded-lg px-4 py-3 text-base outline-none transition-colors"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.07)",
+                    border: emailTouched && !emailValid
+                      ? "1px solid rgba(239,68,68,0.6)"
+                      : "1px solid rgba(124,58,237,0.35)",
+                    color: "#ffffff",
+                  }}
+                />
+                {emailTouched && !emailValid && (
+                  <p className="text-xs mt-1.5" style={{ color: "#fca5a5" }}>
+                    Please enter a valid email address.
+                  </p>
+                )}
+              </div>
 
               {error && (
                 <div

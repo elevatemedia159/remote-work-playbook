@@ -5,7 +5,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 import { sendDeliveryEmail } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
-  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = await req.json();
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature, email: bodyEmail } = await req.json();
 
   if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
     return NextResponse.json({ error: "Missing payment details." }, { status: 400 });
@@ -23,22 +23,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Payment verification failed." }, { status: 400 });
   }
 
-  // Step 2 — fetch payment details from Razorpay to get name & email
-  const razorpay = new Razorpay({
-    key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
-    key_secret: process.env.RAZORPAY_KEY_SECRET!,
-  });
+  // Step 2 — use email from checkout form; fallback to Razorpay fetch
+  let email = (bodyEmail ?? "").trim().toLowerCase();
 
-  let paymentDetails: { email?: string; contact?: string; description?: string } = {};
-  try {
-    paymentDetails = await razorpay.payments.fetch(razorpay_payment_id) as { email?: string; contact?: string; description?: string };
-  } catch (e) {
-    console.error("Razorpay payment fetch error:", e);
-    // Don't fail — continue with empty name/email
+  if (!email) {
+    const razorpay = new Razorpay({
+      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
+      key_secret: process.env.RAZORPAY_KEY_SECRET!,
+    });
+    try {
+      const paymentDetails = await razorpay.payments.fetch(razorpay_payment_id) as { email?: string };
+      email = (paymentDetails.email ?? "").trim().toLowerCase();
+    } catch (e) {
+      console.error("Razorpay payment fetch error:", e);
+    }
   }
 
-  const email = (paymentDetails.email ?? "").trim().toLowerCase();
-  const name = email.split("@")[0] ?? "there"; // fallback name from email prefix
+  const name = email.split("@")[0] ?? "there";
 
   // Step 3 — save lead to Supabase
   if (email) {
