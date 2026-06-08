@@ -57,7 +57,7 @@ function Nav() {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function Hero() {
-  const price = "99";
+  const price = "29";
 
   return (
     <section style={{
@@ -112,7 +112,7 @@ function Hero() {
                 <span style={{
                   backgroundColor: "rgba(124,58,237,0.2)", border: "1px solid rgba(124,58,237,0.4)",
                   color: "#a78bfa", fontWeight: 700, fontSize: 11, borderRadius: 999, padding: "3px 10px",
-                }}>94% OFF</span>
+                }}>98% OFF</span>
                 <span style={{ fontSize: 11, color: "#64748b", fontWeight: 400 }}>One-time · Instant PDF</span>
               </div>
             </div>
@@ -156,7 +156,7 @@ function Agitation() {
 // ─── Mechanism ────────────────────────────────────────────────────────────────
 
 function Mechanism() {
-  const price = "99";
+  const price = "29";
 
   const items = [
     { icon: "🌐", text: "28 remote job boards most Indian applicants never touch, so you're not fighting the crowd." },
@@ -214,7 +214,7 @@ function Stakes() {
 // ─── Pricing ──────────────────────────────────────────────────────────────────
 
 function Pricing() {
-  const price = "99";
+  const price = "29";
 
   return (
     <section style={{ backgroundColor: "#0f0a1e", padding: "56px 24px" }}>
@@ -333,7 +333,7 @@ function FAQ() {
 // ─── Final CTA ────────────────────────────────────────────────────────────────
 
 function FinalCTA() {
-  const price = "99";
+  const price = "29";
 
   return (
     <section style={{
