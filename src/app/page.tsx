@@ -201,10 +201,10 @@ function Stakes() {
     <section style={{ backgroundColor: "#f9fafb", padding: "56px 24px" }}>
       <div style={{ maxWidth: 420, margin: "0 auto", textAlign: "center" }}>
         <h2 style={{ fontWeight: 800, fontSize: "clamp(22px,5vw,26px)", color: "#0f172a", lineHeight: 1.25, marginBottom: 20, textWrap: "balance" } as React.CSSProperties}>
-          The Real Price Isn&apos;t &#8377;99. It&apos;s Waiting.
+          &#8377;29 Is Less Than a Packet of Chips
         </h2>
         <p style={{ fontWeight: 400, fontSize: 15, color: "#475569", lineHeight: 1.75, margin: 0 }}>
-          Every month you keep applying the old way is a month you stay on a rupee salary while the same roles, paying 3x to 5x in USD, go to someone with a system. &#8377;99 is less than a dinner out. The cost of doing nothing is another quarter of your career spent waiting for a reply that isn&apos;t coming.
+          Every month you keep applying the old way is a month you stay on a rupee salary while the same roles, paying 3x to 5x in USD, go to someone with a system. &#8377;29 is less than a packet of chips. The cost of doing nothing is another quarter of your career spent waiting for a reply that isn&apos;t coming.
         </p>
       </div>
     </section>
