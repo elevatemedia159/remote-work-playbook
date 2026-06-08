@@ -71,6 +71,7 @@ function CheckoutContent() {
       description: "By Elevate Media · Instant PDF download",
       image: "https://elevatemedia159.in/logo.png",
       order_id: orderData.orderId,
+      prefill: { email: "", contact: "" },
       theme: { color: "#7c3aed" },
       modal: {
         ondismiss: () => {
